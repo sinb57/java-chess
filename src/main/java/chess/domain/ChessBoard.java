@@ -96,7 +96,7 @@ public class ChessBoard {
                 .count();
     }
 
-    private boolean isSameColorPawn(final Color color, Piece piece) {
+    private boolean isSameColorPawn(Color color, Piece piece) {
         return piece.isSameColor(color) && piece.isPawn();
     }
 
@@ -107,7 +107,7 @@ public class ChessBoard {
                 .anyMatch(entry -> existOtherPawnInColumn(position, entry.getKey()));
     }
 
-    private boolean existOtherPawnInColumn(final Position position, Position comparePosition) {
+    private boolean existOtherPawnInColumn(Position position, Position comparePosition) {
         return !position.equals(comparePosition) && position.equalsColumn(comparePosition);
     }
 

@@ -11,13 +11,13 @@ public class PromotionStatus implements Command {
     private final ChessBoard chessBoard;
     private final Color color;
 
-    public PromotionStatus(ChessBoard chessbBoard, Color color) {
-        this.chessBoard = chessbBoard;
+    public PromotionStatus(ChessBoard chessBoard, Color color) {
+        this.chessBoard = chessBoard;
         this.color = color;
     }
 
     @Override
-    public Running run(final String command) {
+    public Running run(String command) {
         Piece promotionPiece = Promotion.createPromotionPiece(command, color);
         chessBoard.promotion(promotionPiece, color);
         OutputView.printChessBoard(chessBoard.getPieces());

@@ -40,33 +40,33 @@ public enum Direction {
         return position.move(columnAmount, rowAmount);
     }
 
-    public List<Position> route(Position position, Position targetPosition) {
-        if (isNotMovable(position, targetPosition)) {
+    public List<Position> route(Position source, Position target) {
+        if (isNotMovable(source, target)) {
             return Collections.emptyList();
         }
-        return calculateRoute(position, targetPosition, new ArrayList<>());
+        return calculateRoute(source, target, new ArrayList<>());
     }
 
-    private boolean isNotMovable(Position position, Position wantPosition) {
-        return position.equals(wantPosition) || !isMovableByMultipleMovable(position, wantPosition);
+    private boolean isNotMovable(Position source, Position target) {
+        return source.equals(target) || !isMovableByMultipleMovable(source, target);
     }
 
-    private boolean isMovableByMultipleMovable(Position position, Position wantPosition) {
-        if (position.equals(wantPosition)) {
+    private boolean isMovableByMultipleMovable(Position source, Position target) {
+        if (source.equals(target)) {
             return true;
         }
-        if (position.isMovable(columnAmount, rowAmount)) {
-            return isMovableByMultipleMovable(move(position), wantPosition);
+        if (source.isMovable(columnAmount, rowAmount)) {
+            return isMovableByMultipleMovable(move(source), target);
         }
         return false;
     }
 
-    private List<Position> calculateRoute(Position position, Position targetPosition, List<Position> route) {
-        if (position.equals(targetPosition)) {
+    private List<Position> calculateRoute(Position source, Position target, List<Position> route) {
+        if (source.equals(target)) {
             return route;
         }
-        Position movePosition = move(position);
+        Position movePosition = move(source);
         route.add(movePosition);
-        return calculateRoute(movePosition, targetPosition, route);
+        return calculateRoute(movePosition, target, route);
     }
 }
