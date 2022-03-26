@@ -9,10 +9,11 @@ import static chess.domain.direction.Direction.UP_RIGHT_RIGHT;
 import static chess.domain.direction.Direction.UP_UP_LEFT;
 import static chess.domain.direction.Direction.UP_UP_RIGHT;
 
-import chess.domain.Color;
-import chess.domain.direction.Direction;
 import java.util.Arrays;
 import java.util.List;
+
+import chess.domain.Color;
+import chess.domain.direction.Direction;
 
 public final class Knight extends SinglePiece {
 

@@ -1,12 +1,13 @@
 package chess.domain;
 
+import java.util.Arrays;
+import java.util.function.Function;
+
 import chess.domain.piece.Piece;
 import chess.domain.piece.multiple.Bishop;
 import chess.domain.piece.multiple.Rook;
 import chess.domain.piece.single.King;
 import chess.domain.piece.single.Knight;
-import java.util.Arrays;
-import java.util.function.Function;
 
 public enum Promotion {
 

@@ -1,13 +1,14 @@
 package chess.domain.piece.multiple;
 
+import java.util.Collections;
+import java.util.List;
+
 import chess.domain.ChessBoard;
 import chess.domain.Color;
 import chess.domain.Position;
 import chess.domain.direction.Direction;
 import chess.domain.piece.AbstractPiece;
 import chess.domain.piece.Piece;
-import java.util.Collections;
-import java.util.List;
 
 public abstract class MultiplePiece extends AbstractPiece {
 

@@ -1,5 +1,8 @@
 package chess.domain.piece;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import chess.domain.Color;
 import chess.domain.Position;
 import chess.domain.piece.multiple.Bishop;
@@ -9,8 +12,6 @@ import chess.domain.piece.pawn.BlackPawn;
 import chess.domain.piece.pawn.WhitePawn;
 import chess.domain.piece.single.King;
 import chess.domain.piece.single.Knight;
-import java.util.HashMap;
-import java.util.Map;
 
 public class PieceFactory {
 

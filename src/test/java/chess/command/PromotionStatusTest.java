@@ -4,13 +4,15 @@ import static chess.domain.Color.BLACK;
 import static chess.domain.Color.WHITE;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import java.util.Map;
+
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+
 import chess.domain.ChessBoard;
 import chess.domain.Position;
 import chess.domain.piece.pawn.WhitePawn;
 import chess.domain.piece.single.King;
-import java.util.Map;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 
 class PromotionStatusTest {
 

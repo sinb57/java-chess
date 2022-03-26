@@ -1,9 +1,10 @@
 package chess.view;
 
+import java.util.Map;
+
 import chess.domain.Color;
 import chess.domain.Position;
 import chess.domain.piece.Piece;
-import java.util.Map;
 
 public class OutputView {
 

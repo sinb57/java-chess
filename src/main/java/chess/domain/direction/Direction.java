@@ -1,9 +1,10 @@
 package chess.domain.direction;
 
-import chess.domain.Position;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+
+import chess.domain.Position;
 
 public enum Direction {
 

@@ -4,13 +4,14 @@ import static chess.domain.direction.Direction.UP;
 import static chess.domain.direction.Direction.UP_LEFT;
 import static chess.domain.direction.Direction.UP_RIGHT;
 
+import java.util.Arrays;
+import java.util.List;
+
 import chess.domain.ChessBoard;
 import chess.domain.Color;
 import chess.domain.Position;
 import chess.domain.direction.Direction;
 import chess.domain.piece.Piece;
-import java.util.Arrays;
-import java.util.List;
 
 public final class WhitePawn extends Pawn {
 

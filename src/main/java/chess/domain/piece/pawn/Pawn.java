@@ -1,12 +1,13 @@
 package chess.domain.piece.pawn;
 
+import java.util.List;
+
 import chess.domain.ChessBoard;
 import chess.domain.Color;
 import chess.domain.Position;
 import chess.domain.direction.Direction;
 import chess.domain.piece.AbstractPiece;
 import chess.domain.piece.Piece;
-import java.util.List;
 
 public abstract class Pawn extends AbstractPiece {
 

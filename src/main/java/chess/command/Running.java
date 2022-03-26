@@ -1,13 +1,14 @@
 package chess.command;
 
-import chess.domain.ChessBoard;
-import chess.domain.Color;
-import chess.domain.Position;
-import chess.view.OutputView;
 import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import chess.domain.ChessBoard;
+import chess.domain.Color;
+import chess.domain.Position;
+import chess.view.OutputView;
 
 public class Running implements Command {
 

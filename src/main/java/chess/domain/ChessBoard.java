@@ -1,13 +1,14 @@
 package chess.domain;
 
-import chess.domain.piece.Piece;
-import chess.domain.piece.PieceFactory;
 import java.util.EnumMap;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.NoSuchElementException;
 import java.util.Objects;
+
+import chess.domain.piece.Piece;
+import chess.domain.piece.PieceFactory;
 
 public class ChessBoard {
 

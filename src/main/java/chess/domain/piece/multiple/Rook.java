@@ -5,10 +5,11 @@ import static chess.domain.direction.Direction.LEFT;
 import static chess.domain.direction.Direction.RIGHT;
 import static chess.domain.direction.Direction.UP;
 
-import chess.domain.Color;
-import chess.domain.direction.Direction;
 import java.util.Arrays;
 import java.util.List;
+
+import chess.domain.Color;
+import chess.domain.direction.Direction;
 
 public final class Rook extends MultiplePiece {
 
