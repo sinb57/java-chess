@@ -34,7 +34,7 @@ public class Running implements Command {
             return new End();
         }
         if (command.equals("status")) {
-            OutputView.printChessBoardStatus(chessBoard.calcualteScoreStatus());
+            OutputView.printChessBoardStatus(chessBoard.calculateScoreStatus());
             return this;
         }
         Matcher matcher = MOVE_COMMAND_PATTERN.matcher(command);

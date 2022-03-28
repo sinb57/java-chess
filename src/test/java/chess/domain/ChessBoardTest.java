@@ -135,7 +135,7 @@ class ChessBoardTest {
         ));
         Map<Color, Double> expected = Map.of(Color.WHITE, 13.5, Color.BLACK, 9.0);
 
-        assertThat(chessBoard.calcualteScoreStatus()).isEqualTo(expected);
+        assertThat(chessBoard.calculateScoreStatus()).isEqualTo(expected);
     }
 
     @ParameterizedTest

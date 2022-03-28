@@ -3,6 +3,7 @@ package chess.command;
 import java.util.Objects;
 
 import chess.domain.ChessBoard;
+import chess.domain.player.PlayerFactory;
 import chess.view.OutputView;
 
 public class Ready implements Command {
@@ -13,7 +14,7 @@ public class Ready implements Command {
         if (!command.equals("start")) {
             throw new IllegalArgumentException("게임이 시작되지 않아 다른 명령을 실행할 수 없습니다.");
         }
-        ChessBoard chessBoard = ChessBoard.createNewChessBoard();
+        ChessBoard chessBoard = ChessBoard.initializeChessBoard(PlayerFactory.getInstance());
         OutputView.printChessBoard(chessBoard.getPieces());
         return Running.createFirstTurnRunning(chessBoard);
     }
