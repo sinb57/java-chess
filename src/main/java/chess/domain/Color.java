@@ -21,7 +21,7 @@ public enum Color {
         return Color.WHITE;
     }
 
-    public String convertToCase(String value) {
+    public String convertCase(String value) {
         return caseConverter.apply(value);
     }
 }

@@ -72,6 +72,6 @@ class PositionTest {
     @DisplayName("프로모션 위치인지 확인")
     void isPromotionPosition(char column, char row, boolean expected) {
         Position position = Position.of(column, row);
-        assertThat(position.isPromotionPosition()).isEqualTo(expected);
+        assertThat(position.isEndOfColumns()).isEqualTo(expected);
     }
 }

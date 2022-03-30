@@ -59,6 +59,14 @@ public class Position {
         return MIN_ROW <= row && row <= MAX_ROW;
     }
 
+    public static Position from(String position) {
+        if (position.length() != 2) {
+            throw new IllegalArgumentException("잘못된 위치 입력입니다.");
+        }
+        return Position.of(position.charAt(0), position.charAt(1));
+    }
+
+
     public static Position of(char column, char row) {
         return CACHE.stream()
                 .filter(position -> position.column == column && position.row == row)
@@ -86,7 +94,7 @@ public class Position {
         return isColumnInRange((char) (column + columnAmount)) && isRowInRange((char) (row + rowAmount));
     }
 
-    public boolean isPromotionPosition() {
+    public boolean isEndOfColumns() {
         return row == MIN_ROW || row == MAX_ROW;
     }
 

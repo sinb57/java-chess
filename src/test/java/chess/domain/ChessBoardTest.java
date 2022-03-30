@@ -1,29 +1,26 @@
 package chess.domain;
 
 import static chess.domain.Color.WHITE;
-import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import chess.domain.piece.Bishop;
+import chess.domain.piece.BlackPawn;
+import chess.domain.piece.King;
+import chess.domain.piece.Knight;
+import chess.domain.piece.Piece;
+import chess.domain.piece.Queen;
+import chess.domain.piece.Rook;
+import chess.domain.piece.WhitePawn;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.stream.Stream;
-
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
-
-import chess.domain.piece.Piece;
-import chess.domain.piece.multiple.Bishop;
-import chess.domain.piece.multiple.Queen;
-import chess.domain.piece.multiple.Rook;
-import chess.domain.piece.pawn.BlackPawn;
-import chess.domain.piece.pawn.WhitePawn;
-import chess.domain.piece.single.King;
-import chess.domain.piece.single.Knight;
 
 class ChessBoardTest {
 

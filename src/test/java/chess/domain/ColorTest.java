@@ -19,7 +19,7 @@ class ColorTest {
     @CsvSource(value = {"WHITE,A,a", "BLACK,b,B"})
     @DisplayName("Color에 따른 문자케이스 변경")
     void convertToCase(Color color, String input, String expected) {
-        String actual = color.convertToCase(input);
+        String actual = color.convertCase(input);
         assertThat(actual).isEqualTo(expected);
     }
 }

@@ -3,18 +3,16 @@ package chess.domain.piece.single;
 import static chess.domain.Color.WHITE;
 import static org.assertj.core.api.Assertions.assertThat;
 
+import chess.domain.Color;
+import chess.domain.Position;
+import chess.domain.piece.Knight;
+import chess.domain.piece.Piece;
 import java.util.Map;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
-
-import chess.domain.ChessBoard;
-import chess.domain.Color;
-import chess.domain.Position;
-import chess.domain.piece.Piece;
 
 class KnightTest {
 

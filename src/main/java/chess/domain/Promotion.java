@@ -1,34 +1,33 @@
 package chess.domain;
 
-import java.util.Arrays;
-import java.util.function.Function;
-
+import chess.domain.piece.Bishop;
+import chess.domain.piece.Knight;
 import chess.domain.piece.Piece;
-import chess.domain.piece.multiple.Bishop;
-import chess.domain.piece.multiple.Rook;
-import chess.domain.piece.single.King;
-import chess.domain.piece.single.Knight;
+import chess.domain.piece.Queen;
+import chess.domain.piece.Rook;
+import java.util.Arrays;
+import java.util.function.Supplier;
 
 public enum Promotion {
 
-    QUEEN("Q", King::new),
-    ROOK("R", Rook::new),
-    BISHOP("B", Bishop::new),
-    KNIGHT("N", Knight::new),
+    QUEEN("Q", Queen::getInstance),
+    ROOK("R", Rook::getInstance),
+    BISHOP("B", Bishop::getInstance),
+    KNIGHT("N", Knight::getInstance),
     ;
 
     private final String value;
-    private final Function<Color, Piece> createPieceFunction;
+    private final Supplier<Piece> createPieceSupplier;
 
-    Promotion(String value, Function<Color, Piece> createPieceFunction) {
+    Promotion(String value, Supplier<Piece> createPieceSupplier) {
         this.value = value;
-        this.createPieceFunction = createPieceFunction;
+        this.createPieceSupplier = createPieceSupplier;
     }
 
-    public static Piece createPromotionPiece(String input, Color color) {
+    public static Piece createPromotionPiece(String input) {
         return Arrays.stream(values())
                 .filter(promotion -> promotion.value.equals(input))
-                .map(promotion -> promotion.createPieceFunction.apply(color))
+                .map(promotion -> promotion.createPieceSupplier.get())
                 .findAny()
                 .orElseThrow(() -> new IllegalArgumentException("불가능한 프로모션 기물 이름입니다."));
     }

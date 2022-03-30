@@ -1,9 +1,8 @@
 package chess.domain.player;
 
-import java.util.Map;
-
 import chess.domain.Position;
 import chess.domain.piece.Piece;
+import java.util.Map;
 
 public class ScoreCalculator {
 
@@ -16,7 +15,7 @@ public class ScoreCalculator {
     private double calculateColorDefaultScore(Map<Position, Piece> pieces) {
         return pieces.values()
                 .stream()
-                .mapToDouble(Piece::score)
+                .mapToDouble(Piece::getScore)
                 .sum();
     }
 

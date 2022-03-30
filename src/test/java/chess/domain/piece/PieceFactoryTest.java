@@ -1,11 +1,8 @@
 package chess.domain.piece;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
+import chess.domain.player.PlayerFactory;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import chess.domain.player.PlayerFactory;
 
 class PieceFactoryTest {
 

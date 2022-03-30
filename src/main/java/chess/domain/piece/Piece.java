@@ -1,26 +1,21 @@
 package chess.domain.piece;
 
-import chess.domain.ChessBoard;
-import chess.domain.Color;
 import chess.domain.Position;
+import java.util.List;
 
 public interface Piece {
 
-    Piece move(Position source, Position target, ChessBoard chessBoard);
+    Piece move();
 
-    String convertedName();
+    List<Position> calculateRouteToMove(Position source, Position target);
 
-    boolean isSameColor(Color color);
-
-    boolean isSameTeamPiece(Piece piece);
-
-    boolean isMovable(Position source, Position target, ChessBoard chessBoard);
-
-    double score();
+    List<Position> calculateRouteToAttack(Position source, Position target);
 
     boolean isPawn();
 
     boolean isKing();
 
-    Color color();
+    String getName();
+
+    double getScore();
 }

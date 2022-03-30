@@ -1,44 +1,62 @@
 package chess.domain.piece;
 
-import chess.domain.ChessBoard;
-import chess.domain.Color;
 import chess.domain.Position;
+import chess.domain.direction.Direction;
+import java.util.List;
+import java.util.function.Predicate;
 
 public abstract class AbstractPiece implements Piece {
 
-    private final Color color;
     private final String name;
+    private final double score;
+    private final List<Direction> directionsToMove;
+    private final List<Direction> directionsToAttack;
 
-    protected AbstractPiece(Color color, String name) {
-        this.color = color;
+    protected AbstractPiece(String name, double score, List<Direction> directions) {
+        this(name, score, directions, directions);
+    }
+
+    protected AbstractPiece(String name, double score,
+                            List<Direction> directionsToMove,
+                            List<Direction> directionsToAttack) {
         this.name = name;
+        this.score = score;
+        this.directionsToMove = directionsToMove;
+        this.directionsToAttack = directionsToAttack;
     }
 
     @Override
-    public Piece move(Position source, Position target, ChessBoard chessBoard) {
-        if (!isMovable(source, target, chessBoard)) {
-            throw new IllegalStateException("움직일 수 없는 곳입니다.");
-        }
-        return this;
+    public final List<Position> calculateRouteToMove(Position source, Position target) {
+        return calculateRoute(directionsToMove, source, target, this::isRouteSizeEnoughToMove);
     }
 
     @Override
-    public final String convertedName() {
-        return color.convertToCase(name);
+    public final List<Position> calculateRouteToAttack(Position source, Position target) {
+        return calculateRoute(directionsToAttack, source, target, this::isRouteSizeEnoughToAttack);
+    }
+
+    private List<Position> calculateRoute(List<Direction> directions,
+                                          Position source, Position target,
+                                          Predicate<Integer> sizeCheckPredicate) {
+        return directions.stream()
+                .map(direction -> direction.route(source, target))
+                .filter(route -> !route.isEmpty())
+                .filter(route -> sizeCheckPredicate.test(route.size()))
+                .findAny()
+                .orElseThrow(() -> new IllegalArgumentException("이동 가능한 목적지가 아닙니다."));
+    }
+
+    protected abstract boolean isRouteSizeEnoughToMove(int routeSize);
+
+    protected abstract boolean isRouteSizeEnoughToAttack(int routeSize);
+
+    @Override
+    public String getName() {
+        return name;
     }
 
     @Override
-    public final boolean isSameColor(Color color) {
-        return this.color == color;
-    }
-
-    @Override
-    public final boolean isSameTeamPiece(Piece piece) {
-        return isSameColor(piece.color());
-    }
-
-    @Override
-    public final Color color() {
-        return color;
+    public double getScore() {
+        return score;
     }
 }
